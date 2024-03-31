@@ -5,7 +5,7 @@ import "@mantine/notifications/styles.css";
 import { Inter } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
-import { createTheme, MantineProvider, ColorSchemeScript } from "@mantine/core";
+import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -18,8 +18,6 @@ export const metadata = {
 	icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-// const theme = createTheme({});
-
 export default function RootLayout({
 	children,
 }: {
@@ -31,9 +29,9 @@ export default function RootLayout({
 				<ColorSchemeScript />
 			</head>
 			<body className={inter.className}>
-				{/* <MantineProvider theme={theme}> */}
-				<TRPCReactProvider>{children}</TRPCReactProvider>
-				{/* </MantineProvider> */}
+				<MantineProvider defaultColorScheme="dark">
+					<TRPCReactProvider>{children}</TRPCReactProvider>
+				</MantineProvider>
 			</body>
 		</html>
 	);
