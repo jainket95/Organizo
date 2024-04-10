@@ -1,3 +1,5 @@
+import { type ReactNode } from "react";
+
 import "~/styles/globals.css";
 import "@mantine/core/styles.css";
 import "@mantine/notifications/styles.css";
@@ -6,6 +8,7 @@ import { Inter } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import { MantineProvider, ColorSchemeScript } from "@mantine/core";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -18,11 +21,7 @@ export const metadata = {
 	icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html lang="en">
 			<head>
@@ -30,7 +29,9 @@ export default function RootLayout({
 			</head>
 			<body className={inter.className}>
 				<MantineProvider defaultColorScheme="dark">
-					<TRPCReactProvider>{children}</TRPCReactProvider>
+					<TRPCReactProvider>
+						<ClerkProvider>{children}</ClerkProvider>
+					</TRPCReactProvider>
 				</MantineProvider>
 			</body>
 		</html>

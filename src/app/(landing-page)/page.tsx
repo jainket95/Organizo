@@ -1,7 +1,6 @@
 import { Button, Center, Flex, Text, Title } from "@mantine/core";
 import { IconMedal2 } from "@tabler/icons-react";
 import Link from "next/link";
-import React from "react";
 
 const LandingPage = () => {
 	return (
@@ -43,7 +42,7 @@ const LandingPage = () => {
 				ultimate companion for staying organized and achieving your goals.
 			</Text>
 
-			<Link href="/">
+			<Link href="/sign-up">
 				<Button variant="outline" color="yellow" size="lg">
 					Get Organizo for free
 				</Button>

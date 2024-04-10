@@ -1,6 +1,5 @@
 import { Flex, Title } from "@mantine/core";
 import Link from "next/link";
-import React from "react";
 
 const Logo = () => {
 	return (

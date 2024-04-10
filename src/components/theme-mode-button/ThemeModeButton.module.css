@@ -10,6 +10,7 @@
 
 	@mixin light {
 		display: block;
+		color: var(--mantine-color-black);
 	}
 }
 
@@ -20,5 +21,6 @@
 
 	@mixin dark {
 		display: block;
+		color: var(--mantine-color-white);
 	}
 }
